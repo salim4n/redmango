@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { menuItemModel } from '../../../interfaces';
 import { useState } from 'react';
 import { useUpdateShoppingCartMutation } from '../../../api/shoppingCartApi';
+import { MiniLoader } from '../../../Pages/Common';
 
 interface Props {
     menuItem: menuItemModel;
@@ -61,10 +62,9 @@ function MenuItemCard(props: Props) {
           {isAddingToCart ? (<div style={{
             position: "absolute",
             top: "15px",
-            right:"15px",}}>
-            <div className='spinner-border text-warning'
-            style={{scale:"100%"}}>
-            </div>
+            right: "15px",
+          }}>
+            <MiniLoader/>
             </div>): ( <i
             className="bi bi-cart-plus btn btn-outline-danger"
             style={{

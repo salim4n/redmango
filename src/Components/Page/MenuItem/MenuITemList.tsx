@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useGetMenuItemsQuery } from '../../../api/menuItemApi';
 import { menuItemModel } from '../../../interfaces';
+import { MainLiader } from '../../../Pages/Common';
 import { setMenuItem } from '../../../Storage/Redux/menuItemSlice';
 import MenuItemCard from './MenuItemCard';
 
@@ -17,7 +18,7 @@ function MenuITemList() {
   }, [isLoading]);
 
   if (isLoading) {
-    return <div className='spinner-border spinner-border-lg d-flex justify-content-center text-success'></div>
+    return <MainLiader/>
   }
 
   return (

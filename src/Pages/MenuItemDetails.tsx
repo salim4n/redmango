@@ -6,6 +6,7 @@ import { setMenuItem } from '../Storage/Redux/menuItemSlice';
 import { useNavigate } from 'react-router-dom';
 import { useUpdateShoppingCartMutation } from '../api/shoppingCartApi';
 import { menuItemModel } from '../interfaces';
+import { MainLiader, MiniLoader } from './Common';
 
 //USER ID - b7ae37bf-09b1-4b47-9ce1-c963031d2920
 function MenuItemDetails() {
@@ -86,11 +87,14 @@ function MenuItemDetails() {
             ></i>
           </span>
           <div className="row pt-4">
-            <div className="col-5">
-                <button onClick={()=> handleAddToCart(data.result?.id)}
+              <div className="col-5">
+                {isAddingToCart ? (<button disabled className='btn btn-success form-control'>
+                  <MiniLoader/>
+                </button>):( <button onClick={()=> handleAddToCart(data.result?.id)}
                   className="btn btn-success form-control">
                 Add to Cart
-              </button>
+              </button>)}
+               
             </div>
 
             <div className="col-5 ">
@@ -110,7 +114,7 @@ function MenuItemDetails() {
           ></img>
         </div>
       </div>
-      ) : <div className='spinner-border spinner-border-lg d-flex justify-content-center text-success'></div>}
+      ) : <MainLiader/>}
       </div>
   )
 }
