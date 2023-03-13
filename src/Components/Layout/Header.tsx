@@ -59,9 +59,7 @@ function Header() {
 									<i className="bi bi-cart">
 										<em>
 											{" "}
-											{shoppingCartFromStore?.length
-												? `(${shoppingCartFromStore.length})`
-												: " "}
+											{userData.id && `${shoppingCartFromStore?.length}`}
 										</em>
 									</i>
 								</NavLink>
